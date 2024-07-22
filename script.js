@@ -16,7 +16,7 @@ function loadTasks() {
     taskList.innerHTML = '';
 
     tasks.forEach((task, index) => {
-        const taskItem = document.createElement('li');
+        const taskItem = document.createElement('div');
         taskItem.className = "bg-gray-100 p-4 rounded flex justify-between items-center";
       taskItem.innerHTML = `
     <div>
