@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto py-8">
+        <h1 class="text-3xl font-bold text-center mb-8">Task Manager</h1>
+        <div class="flex justify-center mb-4">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="showForm()">Add Task</button>
+        </div>
+        <div class="bg-white p-6 rounded shadow-lg max-w-md mx-auto">
+            <h2 class="text-xl font-bold mb-4">Tasks</h2>
+            <ul id="taskList" class="list-none space-y-4">
+                <!-- Tasks will be appended here -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Task Form Modal -->
+    <div id="taskFormModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
+        <div class="bg-white p-8 rounded shadow-lg w-full max-w-md">
+            <h2 class="text-xl font-bold mb-4">Add Task</h2>
+            <form id="taskForm" onsubmit="return addTask(event)">
+                <div class="mb-4">
+                    <label class="block mb-2">Task Title</label>
+                    <input type="text" id="taskTitle" class="w-full p-2 border border-gray-300 rounded outline-none" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2">Task Description</label>
+                    <textarea id="taskDescription" class="w-full p-2 border border-gray-300 rounded outline-none" required></textarea>
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2">Given Time (in hours)</label>
+                    <input type="number" id="taskGivenTime" class="w-full p-2 border border-gray-300 rounded outline-none" required>
+                </div>
+                <div class="flex justify-end">
+                    <button type="button" class="bg-red-500 text-white px-4 py-2 rounded mr-2" onclick="hideForm()">Cancel</button>
+                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Save Task</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
