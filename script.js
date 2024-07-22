@@ -18,22 +18,24 @@ function loadTasks() {
     tasks.forEach((task, index) => {
         const taskItem = document.createElement('li');
         taskItem.className = "bg-gray-100 p-4 rounded flex justify-between items-center";
-        taskItem.innerHTML = `
-            <div>
-                <h3 class="text-lg font-bold">${task.title}</h3>
-                <p>${task.description}</p>
-                <p>Given Time: ${task.givenTime} hours</p>
-                <p>Start Time: ${task.startTime}</p>
-                <p>End Time: ${task.endTime || 'N/A'}</p>
-                <p>Total Time: ${task.totalTime || 'N/A'}</p>
-                <p class=`${task.status==='pending'?'bg-gray-500':'bg-green-500'}`>Status: ${task.status}</p>
-            </div>
-            <div class="flex flex-col gap-4">
-                <button class="bg-green-500 text-white px-2 py-1 rounded mr-2" onclick="changeStatus(${index})">Change Status</button>
-                <button class="bg-red-500 text-white px-2 py-1 rounded" onclick="deleteTask(${index})">Delete</button>
-            </div>
-        `;
-        taskList.appendChild(taskItem);
+      taskItem.innerHTML = `
+    <div>
+        <h3 class="text-lg font-bold">${task.title}</h3>
+        <p>${task.description}</p>
+        <p>Given Time: ${task.givenTime} hours</p>
+        <p>Start Time: ${task.startTime}</p>
+        <p>End Time: ${task.endTime || 'N/A'}</p>
+        <p>Total Time: ${task.totalTime || 'N/A'}</p>
+        <p class="${task.status === 'pending' ? 'bg-gray-500' : 'bg-green-500'}">Status: ${task.status}</p>
+    </div>
+    <div class="flex flex-col gap-4">
+        <button class="bg-green-500 text-white px-2 py-1 rounded mr-2" onclick="changeStatus(${index})">Change Status</button>
+        <button class="bg-red-500 text-white px-2 py-1 rounded" onclick="deleteTask(${index})">Delete</button>
+    </div>
+`;
+taskList.appendChild(taskItem);
+
+      
     });
 }
 
