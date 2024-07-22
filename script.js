@@ -26,9 +26,9 @@ function loadTasks() {
                 <p>Start Time: ${task.startTime}</p>
                 <p>End Time: ${task.endTime || 'N/A'}</p>
                 <p>Total Time: ${task.totalTime || 'N/A'}</p>
-                <p>Status: ${task.status}</p>
+                <p class=`${task.status==='pending'?'bg-gray-500':'bg-green-500'}`>Status: ${task.status}</p>
             </div>
-            <div>
+            <div class="flex flex-col gap-4">
                 <button class="bg-green-500 text-white px-2 py-1 rounded mr-2" onclick="changeStatus(${index})">Change Status</button>
                 <button class="bg-red-500 text-white px-2 py-1 rounded" onclick="deleteTask(${index})">Delete</button>
             </div>
